@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <data noupdate="0">
+        <record id="module_xr_base" model="ir.module.category">
+            <field name="name">旭锐基础档案</field>
+            <field name="description">基础档案管理</field>
+        </record>
+
+        <record id="group_readonly" model="res.groups">
+             <field name="name">只读</field>
+             <field name="category_id" ref="module_xr_base"/>
+             <field name="implied_ids" eval="[(4,ref('base.group_user'))]"/>
+             <field name="comment">只读</field>
+         </record>
+
+        <record id="group_traders" model="res.groups">
+             <field name="name">业务员</field>
+             <field name="category_id" ref="module_xr_base"/>
+             <field name="implied_ids" eval="[(4,ref('base.group_user'))]"/>
+             <field name="comment">业务员</field>
+         </record>
+
+        <record id="group_manager" model="res.groups">
+             <field name="name">开发部长</field>
+             <field name="category_id" ref="module_xr_base"/>
+             <field name="implied_ids" eval="[(4,ref('base.group_user'))]"/>
+             <field name="comment">开发部长</field>
+         </record>
+
+        <record id="group_sales_manager" model="res.groups">
+             <field name="name">销售部长</field>
+             <field name="category_id" ref="module_xr_base"/>
+             <field name="implied_ids" eval="[(4,ref('base.group_user'))]"/>
+             <field name="comment">销售部长</field>
+         </record>
+
+        <record id="group_engineer" model="res.groups">
+             <field name="name">工程师</field>
+             <field name="category_id" ref="module_xr_base"/>
+             <field name="implied_ids" eval="[(4,ref('base.group_user'))]"/>
+             <field name="comment">工程师</field>
+         </record>
+
+        <record id="group_admin" model="res.groups">
+             <field name="name">基础管理员</field>
+             <field name="category_id" ref="module_xr_base"/>
+             <field name="implied_ids" eval="[(4,ref('base.group_user'))]"/>
+             <field name="comment">基础管理员</field>
+         </record>
+
+        <record id="group_boss" model="res.groups">
+             <field name="name">领导</field>
+             <field name="category_id" ref="module_xr_base"/>
+             <field name="implied_ids" eval="[(4,ref('base.group_user'))]"/>
+             <field name="comment">领导</field>
+         </record>
+
+
+    </data>
+</odoo>

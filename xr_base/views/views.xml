@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <data>
+        <menuitem id="menu_base" name="旭锐基础档案" web_icon="xr_base,static/description/icon.png" sequence="10"/>
+            <menuitem id="menu_customer_file" name="客户档案" parent="menu_base" sequence="10"/>
+                <menuitem id="menu_customer_name" name="客户档案" parent="menu_customer_file" action="news_customer_action" sequence="15"/>
+                <menuitem id="menu_area" name="客户地区" parent="menu_customer_file" action="news_area_action" sequence="20"/>
+                <menuitem id="menu_archives" name="客户联系人" parent="menu_customer_file" action="news_archives_action" sequence="25"/>
+            <menuitem id="menu_company" parent="menu_base" action="base_company_action" name="公司档案" sequence="12"/>
+            <menuitem id="menu_new_product" parent="menu_base" action="news_product_action" name="产品档案" sequence="15"/>
+            <menuitem id="menu_new_personnel" parent="menu_base" action="news_personnel_action" name="员工档案" sequence="20"/>
+            <menuitem id="menu_new_department" parent="menu_base" action="news_department_action" name="部门档案" sequence="25"/>
+            <menuitem id="menu_new_menagement" parent="menu_base" name="新产品" sequence="30"/>
+                <menuitem id="menu_technology" name="新工艺" parent="menu_new_menagement" action="news_technology_action" sequence="10"/>
+                <menuitem id="menu_material" name="新材料" parent="menu_new_menagement" action="news_material_action" sequence="15"/>
+    </data>
+</odoo>
