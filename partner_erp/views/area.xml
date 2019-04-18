@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<odoo>
+     <data>
+         <record id="partner_area_tree" model="ir.ui.view">
+             <field name="name">partner.area.tree</field>
+             <field name="model">partner.area</field>
+             <field name="arch" type="xml">
+                 <tree default_order="create_date desc">
+                     <field name="name" />
+                     <field name="state"/>
+                 </tree>
+             </field>
+         </record>
+
+         <record id="partner_area_form" model="ir.ui.view">
+             <field name="name">partner.area.form</field>
+             <field name="model">partner.area</field>
+             <field name="arch" type="xml">
+                 <form string="block">
+                     <header>
+                        <field name="state" widget="statusbar"/>
+                        <button name="to_approval" string="提交" type="object" states="draft" class="oe_highlight"
+                                groups="partner_erp.group_all,partner_erp.group_crm_secretary,partner_erp.group_crm_leader"/>
+                        <button name="to_done" string="审批" type="object" states="approval" class="oe_highlight"
+                                groups="partner_erp.group_all,partner_erp.group_crm_secretary,partner_erp.group_crm_leader"/>
+                        <button name="to_draft" string="取消" type="object" states="approval,done" class="oe_highlight"
+                                groups="partner_erp.group_all,partner_erp.group_crm_secretary,partner_erp.group_crm_leader"/>
+                    </header>
+                     <sheet>
+                        <group col="2">
+                            <field name="name" />
+                            <field name="archives_ids" widget="many2many_tags"/>
+                        </group>
+                         <group col="4">
+                            <field name="create_uid" readonly="1"/>
+                            <field name="create_date" readonly="1"/>
+                         </group>
+                     </sheet>
+                     
+                 </form>
+             </field>
+         </record>
+         <record id="partner_area_filter" model="ir.ui.view">
+             <field name="name">partner.area.filter</field>
+             <field name="model">partner.area</field>
+             <field name="arch" type="xml">
+                 <search string="partner_users">
+                     <field name="name" string="名称/状态" filter_domain="['|',('name','ilike',self),('state','ilike',self)]"/>
+                    <!--<field name="archives_id"/>-->
+                    <!--<field name="bank_name"/>-->
+                    <!--<field name="number"/>-->
+                </search>
+             </field>
+         </record>
+         <!--看板视图-->
+         <record id='partner_area_kanban' model='ir.ui.view'>
+            <field name="name">partner.area.kanban</field>
+            <field name="model">partner.area</field>
+            <field name="arch" type="xml">
+                <kanban default_order="create_date desc">
+                    <field name="name"/>
+                    <field name="state"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click">
+                                <div class="o_kanban_record_top">
+                                    <div class="o_kanban_record_headings">
+                                        地区名称:<strong class="o_kanban_record_title"><field name="name"/></strong>
+                                    </div>
+                                    <!--<field name="state" widget="kanban_label_selection" options="{'classes': {'new': 'draft', 'confirmed': 'confirm', 'cancelled':'second'}}"/>-->
+                                </div>
+                                <div>
+                                    审核状态:<field name="state"/>
+                                </div>
+                                <div class="row">
+                                    <!--<div class="col-xs-6">-->
+                                        <!--<i class="fa fa-money"/> <field name="create_uid"/>-->
+                                    <!--</div>-->
+                                    <!--<div class="col-xs-6 text-right">-->
+                                        <!--<i class="fa fa-clock-o"/> <field name="create_date"/>-->
+                                    <!--</div>-->
+                                </div>
+                                <div class="row mt4">
+                                    <!--<div class="col-xs-6">-->
+                                        <!--<a class="btn btn-xs btn-danger" name="unlink" groups="base.group_erp_manager" string="删除" type="object">-->
+                                            <!--删除-->
+                                        <!--</a>-->
+                                    <!--</div>-->
+                                    <div class="col-xs-6">
+                                        <!--<img t-att-src="kanban_image('res.users', 'image_small', record.user_id.raw_value)" t-att-title="record.user_id.value" width="24" height="24" class="oe_kanban_avatar pull-right"/>-->
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+        
+         <record id='partner_area_action' model='ir.actions.act_window'>
+             <field name="name">客户地区</field>
+             <field name="res_model">partner.area</field>
+             <field name="view_type">form</field>
+             <field name="view_mode">tree,form,kanban</field>
+         </record>
+
+     </data>
+</odoo>
+

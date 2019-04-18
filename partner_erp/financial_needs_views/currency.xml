@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<odoo>
+     <data>
+
+        <record id="view_res_currency_form_inherit" model="ir.ui.view">
+            <field name="name">res.currency.form.inherit</field>
+            <field name="model">res.currency</field>
+            <field name="inherit_id" ref="base.view_currency_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='rate']" position="after">
+                    <!--<field name="currency_type_id" options="{'no_create': True}"/>-->
+                </xpath>
+            </field>
+        </record>
+
+     </data>
+</odoo>

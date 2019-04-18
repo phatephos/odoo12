@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--时间维度from-->
+         <record id="time_dimension_form" model="ir.ui.view">
+             <field name="name">budget.time_dimension.form</field>
+             <field name="model">budget.time_dimension</field>
+             <field name="arch" type="xml">
+                 <form string="时间维度">
+                     <header>
+                        <field name="state" widget="statusbar"/>
+                        <button name="action_approval" string="提交" type="object" states="draft" class="oe_highlight"/>
+                        <button name="action_approved" string="审批" type="object" states="confirm" class="oe_highlight"/>
+                        <button name="action_draft" string="取消" type="object" states="confirm,done" class="oe_highlight"/>
+                    </header>
+                     <sheet>
+                         <notebook>
+                             <page string="时间维度">
+                                 <group col="4">
+                                     <field name="name"  required="1"/>
+                                 </group>
+                             </page>
+                         </notebook>
+                         <group col="4">
+                             <field name="employee_id" string="制单人" options="{'no_create_edit': True}"
+                                    domain="[('bill_type','=','users')]" readonly="1"/>
+                             <field name="bill_date" string="单据日期"  readonly="1"/>
+                         </group>
+                     </sheet>
+                     <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                 </form>
+             </field>
+         </record>
+
+        <!--时间维度tree-->
+         <record id="time_dimension_tree" model="ir.ui.view">
+             <field name="name">budget.time_dimension.tree</field>
+             <field name="model">budget.time_dimension</field>
+             <field name="arch" type="xml">
+                 <tree string="时间维度" default_order="id desc">
+                     <field name="name"/>
+                     <field name="employee_id"/>
+                     <field name="bill_date"/>
+                     <field name="state"/>
+                </tree>
+            </field>
+         </record>
+
+        <!--搜索视图-->
+        <record id="time_dimension_filter" model="ir.ui.view">
+             <field name="name">time_dimension_select</field>
+             <field name="model">budget.time_dimension</field>
+             <field name="arch" type="xml">
+                 <search string="时间维度">
+                     <field name="name"/>
+                     <group expand="0" string="Group By">
+                        <filter string="时间维度" domain="[]" context="{'group_by' : 'name'}"/>
+                    </group>
+                </search>
+             </field>
+         </record>
+
+        <record id="time_dimension_action" model='ir.actions.act_window'>
+            <field name="name">时间维度</field>
+            <field name="res_model">budget.time_dimension</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

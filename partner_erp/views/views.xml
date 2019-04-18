@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <menuitem id="menu_partner" name="基础档案"  web_icon="partner_erp,static/description/icon.png" sequence="40"/>
+        <menuitem id="menu_partner_files" parent="menu_partner" name="客户档案" sequence="10"/>
+            <menuitem id="menu_partner_archives" parent="menu_partner_files" action="partner_archives_action" name="客户档案" sequence="5"/>
+            <menuitem id="menu_partner_account" parent="menu_partner_files" action="partner_account_action" name="客户账户" sequence="10"/>
+            <menuitem id="menu_partner_contact" parent="menu_partner_files" action="partner_contact_action" name="客户联系人" sequence="15"/>
+            <menuitem id="menu_quality_requirement" parent="menu_partner_files" action="quality_requirement_action" name="产品质量要求" sequence="20"/>
+            <menuitem id="menu_partner_area" parent="menu_partner_files" action="partner_area_action" name="客户地区" sequence="25"/>
+            <menuitem id="menu_change_partner" parent="menu_partner_files" action="change_archives_action" name="客户信息变更" sequence="30"/>
+        <menuitem id="menu_company" parent="menu_partner" name="公司档案" sequence="20"/>
+            <menuitem id="menu_partner_company" parent="menu_company" action="partner_company_action" name="公司档案" sequence="5"/>
+            <menuitem id="menu_partner_my_company_account" parent="menu_company" action="partner_my_company_account_action" name="公司账户" sequence="10"/>
+        <menuitem id="menu_users" parent="menu_partner" name="人员档案" sequence="35" />
+            <menuitem id="menu_archives_users" parent="menu_users" name="人员档案" action="archives_users_action" sequence="5" />
+            <menuitem id="menu_partner_users_account" parent="menu_users" action="partner_users_action" name="员工账户" sequence="15"/>
+        <menuitem id="menu_material" parent="menu_partner" name="存货信息" sequence="40" />
+            <menuitem id="menu_material_codes" parent="menu_material" name="物料信息" sequence="10" action="code_material_codes_action"/>
+            <menuitem id="menu_code_material" parent="menu_material" action="code_material_action" name="存货分类" sequence="20"/>
+            <menuitem id="menu_code_label" parent="menu_material" action="code_label_action" name="标签" sequence="25"/>
+            <menuitem id="menu_code_metering" parent="menu_material" action="code_metering_action" name="计量单位" sequence="30"/>
+            <menuitem id="menu_other_name" parent="menu_material" action="other_name_action" name="物料别名" sequence="35"/>
+            <menuitem id="menu_material_classification" parent="menu_material" action="material_classification_action" name="物料类别" sequence="40"/>
+        <menuitem id="menu_organization" parent="menu_partner" name="组织机构" sequence="45" />
+            <!--<menuitem id="menu_mes_process" name="工段" parent="menu_organization" sequence="1" action="mes.action_mes_process"/>-->
+            <menuitem id="menu_mes_area" name="基地" parent="menu_organization" sequence="5" action="action_mes_area"/>
+            <menuitem id="menu_mes_class_time" name="班次" parent="menu_organization" sequence="10" action="action_mes_class_time"/>
+            <menuitem id="menu_mes_block" name="预算装置" parent="menu_organization" sequence="11" action="action_mes_block"/>
+            <menuitem id="menu_human_resource_department" parent="menu_organization" action="human_resource_department_action" name="部门档案" sequence="15"/>
+            <menuitem id="menu_human_resource_department_category" parent="menu_organization" action="human_resource_department_category_action" name="部门类别" sequence="20"/>
+            <menuitem id="menu_partner_post" parent="menu_organization" action="partner_post_action" name="岗位档案" sequence="30"/>
+            <menuitem id="menu_budget_department" parent="menu_organization" action="budget_department_action" name="预算管理部门" sequence="36"/>
+            <menuitem id="menu_management_caliber" parent="menu_organization" action="management_caliber_action" name="管理口径类型" sequence="40"/>
+            <menuitem id="menu_partner_production_system" name="生产加工系统"  parent="menu_organization" sequence="45" action="partner_production_system_action"/>
+        <menuitem id="menu_settlement" parent="menu_partner" name="结算信息" sequence="46" />
+            <menuitem id="menu_partner_bank" parent="menu_settlement" action="partner_bank_action" name="银行总行名称" sequence="5"/>
+            <menuitem id="menu_partner_bank_table" parent="menu_settlement" action="partner_bank_table_action" name="银行档案（支行）" sequence="10"/>
+            <menuitem id="menu_bank_type" name="银行类别"  parent="menu_settlement" sequence="11" action="bank_type_action"/>
+            <menuitem id="menu_account_type" name="账户类别"  parent="menu_settlement" sequence="15" action="account_type_action"/>
+            <menuitem id="menu_account_type_detail" name="账户类别明细"  parent="menu_settlement" sequence="20" action="account_type_detail_action"/>
+            <menuitem id="menu_allowance_account" name="备抵账户"  parent="menu_settlement" sequence="25" action="allowance_account_action"/>
+            <menuitem id="menu_allowance_account_detail" name="备抵账户明细"  parent="menu_settlement" sequence="30" action="allowance_account_detail_action"/>
+            <!--<menuitem id="menu_allowance_account_state" name="账户状态"  parent="menu_settlement" sequence="35" action="account_state_action"/>-->
+        <!--<menuitem id="menu_project" parent="menu_partner" name="项目信息" sequence="46" />-->
+        <menuitem id="menu_partner_base" parent="menu_partner" name="基本档案" sequence="50"/>
+            <!--<menuitem id="menu_mes_process" name="工段"  parent="menu_partner_base" sequence="40" action="mes_process_action"/>-->
+            <menuitem id="menu_subject_assistance" parent="menu_partner" name="科目辅助档案" sequence="60"/>
+            <!--<menuitem id="menu_cash_flow" name="现金流量"  parent="menu_subject_assistance" sequence="10" action="cash_flow_action"/>-->
+            <menuitem id="menu_financial_assets" name="金融资产"  parent="menu_partner_base" sequence="50" action="financial_assets_action"/>
+            <menuitem id="menu_settlement_style" name="结算类别"  parent="menu_partner_base" sequence="60" action="settlement_style_action"/>
+            <menuitem id="menu_is_no" name="是否档案"  parent="menu_partner_base" sequence="70" action="is_no_action"/>
+            <!--<menuitem id="menu_budget_items" name="预算项目"  parent="menu_partner_base" sequence="80" action="budget_items_action"/>-->
+            <!--<menuitem id="menu_budget_device" name="预算装置"  parent="menu_partner_base" sequence="90" action="budget_device_action"/>-->
+            <menuitem id="menu_expenses_type" name="报销类型"  parent="menu_partner_base" sequence="100" action="expenses_type_action"/>
+            <menuitem id="menu_expenditure_business" name="支出业务"  parent="menu_partner_base" sequence="105" action="expenditure_business_action"/>
+            <menuitem id="menu_expend_items" name="支出项目"  parent="menu_partner_base" sequence="110" action="expend_items_action"/>
+            <menuitem id="menu_expend_detail" name="支出明细"  parent="menu_partner_base" sequence="115" action="expend_detail_action"/>
+            <menuitem id="menu_contract_category" name="合同类别"  parent="menu_partner_base" sequence="120" action="contract_category_action"/>
+            <menuitem id="menu_bill_type" name="单据类型"  parent="menu_partner_base" sequence="120" action="bill_type_action"/>
+            <menuitem id="menu_em_project" name="项目档案"  parent="menu_partner_base" sequence="125" action="project_base_action"/>
+            <menuitem id="menu_contract_mode" name="合同方式"  parent="menu_partner_base" sequence="145" action="contract_mode_action"/>
+            <menuitem id="menu_advance_type" name="预付类别"  parent="menu_partner_base" sequence="150" action="advance_type_action"/>
+            <menuitem id="menu_receive_type" name="收发类别"  parent="menu_partner_base" sequence="165" action="receive_type_action"/>
+            <menuitem id="menu_receive_type_detail" name="收发类别明细"  parent="menu_partner_base" sequence="170" action="receive_type_detail_action"/>
+            <menuitem id="menu_long_spending" name="长期待摊"  parent="menu_partner_base" sequence="185" action="long_spending_action"/>
+            <!--<menuitem id="menu_financial_cost" name="财务费用"  parent="menu_partner_base" sequence="195" action="financial_cost_action"/>-->
+            <menuitem id="menu_nonoperating_re" name="营业外收支"  parent="menu_partner_base" sequence="200" action="nonoperating_re_action"/>
+            <menuitem id="menu_time_dimension" name="时间维度"  parent="menu_partner_base" sequence="205" action="time_dimension_action"/>
+        <menuitem id="menu_FM" parent="menu_partner" name="FM基本档案" sequence="70"/>
+            <menuitem id="menu_fm_currency_rate" name="币种汇率"  parent="menu_FM" sequence="5" action="base.action_currency_form"/>
+            <menuitem id="menu_currency_type" name="币种类别"  parent="menu_FM" sequence="6" action="currency_type_action"/>
+            <menuitem id="fm_account_account_menu" name="科目" parent="menu_FM" sequence="10" action="fm_account_acoount_action"/>
+            <menuitem id="fm_account_type_menu" name="科目类型" parent="menu_FM" sequence="20" action="fm_account_acoount_type_action"/>
+            <menuitem id="fm_account_tag_menu" name="科目标签" parent="menu_FM" sequence="30" action="fm_account_acoount_tag_action"/>
+            <menuitem id="fm_account_tax_menu" name="税率" parent="menu_FM" sequence="40" action="fm_account_acoount_tax_action"/>
+            <menuitem id="fm_account_journal_menu" name="账簿" parent="menu_FM" sequence="50" action="fm_account_acoount_journal_action"/>
+            <menuitem id="fm_account_bill_type_menu" name="票据类型" parent="menu_FM" sequence="82" action="fm_account_bill_type_action"/>
+            <menuitem id="fm_accounting_interval_menu" name="会计期间" parent="menu_FM" sequence="85" action="fm_accounting_interval_action"/>
+            <menuitem id="fm_nc_type_menu" name="业务流程" parent="menu_FM" sequence="86" action="fm_nc_type_action"/>
+            <menuitem id="fm_account_asset_type_menu" name="资产类别" parent="menu_FM" sequence="90" action="fm_account_asset_type_action"/>
+            <menuitem id="fm_account_asset_depreciation_menu" name="折旧方式" parent="menu_FM" sequence="95" action="fm_account_depreciation_method_action"/>
+            <menuitem id="fm_cash_flow_items_menu" name="现金流量表项目" parent="menu_FM" sequence="87" action="fm_cash_flow_items_action"/>
+            <!--<menuitem id="fm_cost_collection_menu" name="费用归集" parent="menu_FM" sequence="100" action="fm.fm_cost_collection_action"/>-->
+        <menuitem id="menu_EM" parent="menu_partner" name="EM基本档案" sequence="80"/>
+            <menuitem id="menu_equipment_position" parent="menu_EM" action="em_equipment_position_action"/>
+            <menuitem id="menu_class_group" name="班组" parent="menu_EM" action="em_class_group_action"/>
+            <menuitem id="menu_em_standard" parent="menu_EM" action="em_standard_action"/>
+            <menuitem id="menu_em_equipment_state" parent="menu_EM" action="em_equipment_state_action"/>
+            <menuitem id="menu_inventory_organization" name="存货组织" parent="menu_EM" action="inventory_organization_action"/>
+            <menuitem id="menu_warehouse" name="仓库档案" parent="menu_EM" action="warehouse_base_action"/>
+            <menuitem id="menu_equipment_em_phenomenon" name="故障现象" parent="menu_EM" action="em_phenomenon_action"/>
+            <menuitem id="menu_equipment_em_reason" name="故障原因" parent="menu_EM" action="em_reason_action"/>
+            <menuitem id="menu_equipment_em_measures" name="维修措施" parent="menu_EM" action="em_measures_action"/>
+            <menuitem id="menu_asset_type" name="固定资产类别"  parent="menu_EM" sequence="175" action="asset_type_action"/>
+            <menuitem id="menu_intangible_assets" name="无形资产"  parent="menu_EM" sequence="180" action="intangible_assets_action"/>
+            <menuitem id="menu_deferred_tax_assets" name="递延所得税资产"  parent="menu_EM" sequence="190" action="deferred_tax_assets_action"/>
+            <menuitem id="menu_settlement_type" name="结算类别"  parent="menu_EM" sequence="195" action="settlement_type_action"/>
+        <menuitem id="menu_CRM" parent="menu_partner" name="CRM基本档案" sequence="100"/>
+            <menuitem id="menu_crm_c_payment_method" name="收付款方式"  parent="menu_CRM" sequence="20" action="crm_c_payment_method_action"/>
+            <menuitem id="menu_crm_c_transport_mode" name="运输方式"  parent="menu_CRM" sequence="50" action="crm_c_transport_mode_action"/>
+            <menuitem id="menu_crm_c_way_to" name="到厂方式"  parent="menu_CRM" sequence="60" action="crm_c_way_to_action"/>
+            <menuitem id="menu_crm_c_fee_type_action" name="出口运输费用类型" parent="menu_CRM" sequence="70" action="crm_c_fee_type_action"/>
+            <menuitem id="menu_contract_implement_action" name="合同执行情况" parent="menu_CRM" sequence="80" action="contract_implement_action"/>
+        <menuitem id="menu_document" parent="menu_partner" name="ERP系统操作手册" sequence="200" action="action_document"/>
+       <menuitem id="menu_ding" parent="menu_partner" name="钉钉信息" sequence="110"/>
+            <menuitem id="ding_department" name="钉钉部门"  parent="menu_ding" sequence="10" action="ding_department_action"/>
+            <menuitem id="ding_psn_coll" name="钉钉人员"  parent="menu_ding" sequence="20" action="ding_psn_coll_action"/>
+            <menuitem id="ding_setting" name="钉钉设置"  parent="menu_ding" sequence="30" action="action_ding_setting"/>
+            <menuitem id="ding_message" name="钉钉消息"  parent="menu_ding" sequence="40" action="message_action"/>
+    </data>
+</odoo>

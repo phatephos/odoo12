@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<odoo>
+     <data>
+         <record id="ding_department_tree" model="ir.ui.view">
+             <field name="name">ding.ding_department.tree</field>
+             <field name="model">ding.ding_department</field>
+             <field name="arch" type="xml">
+                 <tree>
+                      <field name="name" />
+                            <field name="complete_name"/>
+                            <field name="dept_id"/>
+                            <field name="dept_parent_id"/>
+                            <field name="parent_id"/>
+                            <field name="child_ids"/>
+                 </tree>
+             </field>
+         </record>
+
+         <record id="ding_department_form" model="ir.ui.view">
+             <field name="name">ding.ding_department.form</field>
+             <field name="model">ding.ding_department</field>
+             <field name="arch" type="xml">
+                 <form string="block">
+                     <!--<header>-->
+                        <!--<field name="state" widget="statusbar"/>-->
+                        <!--<button name="to_approval" string="提交" type="object" states="draft" class="oe_highlight"-->
+                                <!--groups="partner_erp.group_all,partner_erp.group_crm_secretary,partner_erp.group_crm_leader"/>-->
+                        <!--<button name="to_done" string="审批" type="object" states="approval" class="oe_highlight"-->
+                                <!--groups="partner_erp.group_all,partner_erp.group_crm_secretary,partner_erp.group_crm_leader"/>-->
+                        <!--<button name="to_draft" string="取消" type="object" states="approval,done" class="oe_highlight"-->
+                                <!--groups="partner_erp.group_all,partner_erp.group_crm_secretary,partner_erp.group_crm_leader"/>-->
+                    <!--</header>-->
+                     <sheet>
+                        <group col="2">
+                            <field name="name" />
+                            <field name="complete_name"/>
+                            <field name="dept_id"/>
+                            <field name="dept_parent_id"/>
+                            <field name="parent_id"/>
+                            <field name="child_ids"/>
+                        </group>
+                     </sheet>
+                     
+                 </form>
+             </field>
+         </record>
+         <record id='ding_department_action' model='ir.actions.act_window'>
+             <field name="name">订订部门</field>
+             <field name="res_model">ding.ding_department</field>
+             <field name="view_type">form</field>
+             <field name="view_mode">tree,form</field>
+         </record>
+
+
+     </data>
+</odoo>
+

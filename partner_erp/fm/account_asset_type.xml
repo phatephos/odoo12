@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+     <data>
+         <record id="fm_account_asset_type_form" model="ir.ui.view">
+             <field name="name">fm_account_asset_type_form</field>
+             <field name="model">fm.account.asset.type</field>
+             <field name="arch" type="xml">
+                 <form>
+                    <sheet>
+                        <group col="8">
+                            <field name="code"/>
+                            <field name="name"/>
+                            <field name="use_year"/>
+                            <field name="use_month"/>
+                        </group>
+                        <group col="2">
+                            <!--<field name="net_salvage"/>-->
+                            <!--<field name="depreciation_method_id"/>-->
+                            <!--<field name="account_id"/>-->
+                            <!--<field name="journal_id"/>-->
+                            <!--<field name="depreciation_account_id"/>-->
+                            <!--<field name="cost_account_id"/>-->
+                        </group>
+                    </sheet>
+                </form>
+             </field>
+         </record>
+         <record id="fm_account_asset_type_tree" model="ir.ui.view">
+             <field name="name">fm_account_asset_type_tree</field>
+             <field name="model">fm.account.asset.type</field>
+             <field name="arch" type="xml">
+                 <tree default_order="create_date desc">
+                     <field name="code"/>
+                     <field name="name"/>
+                     <field name="use_year"/>
+                     <field name="use_month"/>
+                     <!--<field name="net_salvage"/>-->
+                     <!--<field name="account_id"/>-->
+                     <!--<field name="journal_id"/>-->
+                     <!--<field name="depreciation_account_id"/>-->
+                     <!--<field name="cost_account_id"/>-->
+                 </tree>
+             </field>
+         </record>
+         <record id="fm_account_asset_type_filter" model="ir.ui.view">
+             <field name="name">fm_account_asset_type_tree</field>
+             <field name="model">fm.account.asset.type</field>
+             <field name="arch" type="xml">
+                 <search>
+                     <field name="name"/>
+                     <!--<field name="account_id"/>-->
+                     <!--<field name="journal_id"/>-->
+                     <!--<field name="depreciation_account_id"/>-->
+                     <!--<field name="cost_account_id"/>-->
+                </search>
+             </field>
+         </record>
+         <record id='fm_account_asset_type_action' model='ir.actions.act_window'>
+             <field name="name">资产类别</field>
+             <field name="res_model">fm.account.asset.type</field>
+             <field name="view_type">form</field>
+             <field name="view_mode">tree,form,search</field>
+         </record>
+
+     </data>
+</odoo>
+

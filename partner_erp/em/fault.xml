@@ -1,0 +1,208 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <!--存货组织-->
+        <record id="em_phenomenon_tree" model="ir.ui.view">
+            <field name="name">em.phenomenon.tree</field>
+            <field name="model">em.phenomenon</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="name"/>
+                    <field name="phenomenon_name"/>
+                    <field name="code"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="em_phenomenon_form" model="ir.ui.view">
+            <field name="name">em.phenomenon.form</field>
+            <field name="model">em.phenomenon</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <header>
+                        <field name="state" widget="statusbar"/>
+                        <button name="action_approval" string="提交" type="object" states="draft" class="oe_highlight"/>
+                        <button name="action_approved" string="审批" type="object" states="confirm" class="oe_highlight"/>
+                        <button name="action_draft" string="取消" type="object" states="confirm,done"
+                                class="oe_highlight"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <!--<field name="name"/>-->
+                            <field name="code" required="1"/>
+                            <field name="phenomenon_name"/>
+                        </group>
+                        <group>
+                            <field name="note"/>
+                        </group>
+                    </sheet>
+                    <!--<div class="oe_chatter">-->
+                    <!--<field name="message_follower_ids" widget="mail_followers"/>-->
+                    <!--<field name="message_ids" widget="mail_thread"/>-->
+                    <!--</div>-->
+                </form>
+            </field>
+        </record>
+        <record id="em_phenomenon_search_view" model="ir.ui.view">
+            <field name="name">em.phenomenon.search</field>
+            <field name="model">em.phenomenon</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <field name="phenomenon_name"/>
+                    <field name="code"/>
+                    <field name="state"/>
+                </search>
+            </field>
+        </record>
+
+        <record id='em_phenomenon_action' model='ir.actions.act_window'>
+            <field name="name">故障现象</field>
+            <field name="res_model">em.phenomenon</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="em_phenomenon_search_view"/>
+            <field name="view_ids"
+                   eval="[(5, 0, 0),
+                          (0, 0, {'sequence': 10, 'view_mode': 'tree', 'view_id': ref('em_phenomenon_tree')}),
+                          (0, 0, {'sequence': 20, 'view_mode': 'form', 'view_id': ref('em_phenomenon_form')})
+                          ]"/>
+        </record>
+
+        <record id="em_reason_tree" model="ir.ui.view">
+            <field name="name">em.reason.tree</field>
+            <field name="model">em.reason</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="name"/>
+                    <field name="reason_name"/>
+                    <field name="code"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="em_reason_form" model="ir.ui.view">
+            <field name="name">em.reason.form</field>
+            <field name="model">em.reason</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <header>
+                        <field name="state" widget="statusbar"/>
+                        <button name="action_approval" string="提交" type="object" states="draft" class="oe_highlight"/>
+                        <button name="action_approved" string="审批" type="object" states="confirm" class="oe_highlight"/>
+                        <button name="action_draft" string="取消" type="object" states="confirm,done"
+                                class="oe_highlight"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <!--<field name="name"/>-->
+                            <field name="code" required="1"/>
+                            <field name="reason_name"/>
+                        </group>
+                        <group>
+                            <field name="note"/>
+                        </group>
+                    </sheet>
+                    <!--<div class="oe_chatter">-->
+                    <!--<field name="message_follower_ids" widget="mail_followers"/>-->
+                    <!--<field name="message_ids" widget="mail_thread"/>-->
+                    <!--</div>-->
+                </form>
+            </field>
+        </record>
+        <record id="em_reason_search_view" model="ir.ui.view">
+            <field name="name">em.reason.search</field>
+            <field name="model">em.reason</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <field name="reason_name"/>
+                    <field name="code"/>
+                    <field name="state"/>
+                </search>
+            </field>
+        </record>
+
+        <record id='em_reason_action' model='ir.actions.act_window'>
+            <field name="name">故障原因</field>
+            <field name="res_model">em.reason</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="em_reason_search_view"/>
+            <field name="view_ids"
+                   eval="[(5, 0, 0),
+                          (0, 0, {'sequence': 10, 'view_mode': 'tree', 'view_id': ref('em_reason_tree')}),
+                          (0, 0, {'sequence': 20, 'view_mode': 'form', 'view_id': ref('em_reason_form')})                          ]"/>
+        </record>
+
+
+        <record id="em_measures_tree" model="ir.ui.view">
+            <field name="name">em.measures.tree</field>
+            <field name="model">em.measures</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="name"/>
+                    <field name="measures_name"/>
+                    <field name="code"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="em_measures_form" model="ir.ui.view">
+            <field name="name">em.measures.form</field>
+            <field name="model">em.measures</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <header>
+                        <field name="state" widget="statusbar"/>
+                        <button name="action_approval" string="提交" type="object" states="draft" class="oe_highlight"/>
+                        <button name="action_approved" string="审批" type="object" states="confirm" class="oe_highlight"/>
+                        <button name="action_draft" string="取消" type="object" states="confirm,done"
+                                class="oe_highlight"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <!--<field name="name"/>-->
+                            <field name="code" required="1"/>
+                            <field name="measures_name"/>
+
+                        </group>
+                        <group>
+                            <field name="note"/>
+                        </group>
+                    </sheet>
+                    <!--<div class="oe_chatter">-->
+                    <!--<field name="message_follower_ids" widget="mail_followers"/>-->
+                    <!--<field name="message_ids" widget="mail_thread"/>-->
+                    <!--</div>-->
+                </form>
+            </field>
+        </record>
+        <record id="em_measures_search_view" model="ir.ui.view">
+            <field name="name">em.measures.search</field>
+            <field name="model">em.measures</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <field name="code" required="1"/>
+                    <field name="measures_name"/>
+                </search>
+            </field>
+        </record>
+
+        <record id='em_measures_action' model='ir.actions.act_window'>
+            <field name="name">维修措施</field>
+            <field name="res_model">em.measures</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="em_measures_search_view"/>
+            <field name="view_ids"
+                   eval="[(5, 0, 0),
+                          (0, 0, {'sequence': 10, 'view_mode': 'tree', 'view_id': ref('em_measures_tree')}),
+                          (0, 0, {'sequence': 20, 'view_mode': 'form', 'view_id': ref('em_measures_form')})                          ]"/>
+        </record>
+
+
+    </data>
+</odoo>
+

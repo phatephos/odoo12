@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record forcecreate="True" id="ir_cron_create_get_company" model="ir.cron">
+            <field name="name">partner获取人员</field>
+            <field name="active" eval="False"/>
+            <field name="interval_number">5</field>
+            <field name="interval_type">minutes</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+            <field name="model_id" ref="model_partner_archives"/>
+            <field name="code">model.get_company()</field>
+            <field name="priority">11</field>
+        </record>
+
+        <record forcecreate="True" id="ir_cron_create_get_department" model="ir.cron">
+            <field name="name">partner获取部门</field>
+            <field name="active" eval="False"/>
+            <field name="interval_number">5</field>
+            <field name="interval_type">minutes</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+            <field name="model_id" ref="model_human_resource_department"/>
+            <field name="code">model.get_department()</field>
+            <field name="priority">11</field>
+        </record>
+
+        <record forcecreate="True" id="ir_cron_create_get_post" model="ir.cron">
+            <field name="name">partner获取岗位</field>
+            <field name="active" eval="False"/>
+            <field name="interval_number">5</field>
+            <field name="interval_type">minutes</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+            <field name="model_id" ref="model_partner_post"/>
+            <field name="code">model.get_post()</field>
+            <field name="priority">11</field>
+        </record>
+
+        <record forcecreate="True" id="ir_cron_create_get_crm_company" model="ir.cron">
+            <field name="name">partner获得客户信息</field>
+            <field name="active" eval="False"/>
+            <field name="interval_number">5</field>
+            <field name="interval_type">minutes</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+            <field name="model_id" ref="model_partner_archives"/>
+            <field name="code">model.get_crm_c_company()</field>
+            <field name="priority">11</field>
+        </record>
+
+        <record forcecreate="True" id="ir_cron_create_get_material_partner" model="ir.cron">
+            <field name="name">获得物资客户信息</field>
+            <field name="active" eval="False"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">minutes</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+            <field name="model_id" ref="model_partner_archives"/>
+            <field name="code">model.get_material_partner()</field>
+            <field name="priority">11</field>
+        </record>
+
+        <record forcecreate="True" id="ir_cron_create_get_partner_quality_requirement" model="ir.cron">
+            <field name="name">获得产品质量要求</field>
+            <field name="active" eval="False"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+            <field name="model_id" ref="model_partner_quality_requirement"/>
+            <field name="code">model.get_quality_requirement()</field>
+            <field name="priority">11</field>
+        </record>
+
+        <record forcecreate="True" id="ir_cron_create_get_partner_contact" model="ir.cron">
+            <field name="name">获得客户联系人</field>
+            <field name="active" eval="False"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+            <field name="model_id" ref="model_partner_contact"/>
+            <field name="code">model.get_partner_contact()</field>
+            <field name="priority">11</field>
+        </record>
+
+
+    </data>
+</odoo>

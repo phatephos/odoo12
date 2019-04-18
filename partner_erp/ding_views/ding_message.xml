@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<odoo>
+     <data>
+         <record id="message_tree" model="ir.ui.view">
+             <field name="name">ding.ding_message.tree</field>
+             <field name="model">ding.ding_message</field>
+             <field name="arch" type="xml">
+                 <tree>
+                    <field name="message"/>
+                    <field name="is_send"/>
+                 </tree>
+             </field>
+         </record>
+
+         <record id="message_form" model="ir.ui.view">
+             <field name="name">ding.ding_message.form</field>
+             <field name="model">ding.ding_message</field>
+             <field name="arch" type="xml">
+                 <form string="block">
+                     <!--<header>-->
+                        <!--<field name="state" widget="statusbar"/>-->
+                        <!--<button name="to_approval" string="提交" type="object" states="draft" class="oe_highlight"-->
+                                <!--groups="partner_erp.group_all,partner_erp.group_crm_secretary,partner_erp.group_crm_leader"/>-->
+                        <!--<button name="to_done" string="审批" type="object" states="approval" class="oe_highlight"-->
+                                <!--groups="partner_erp.group_all,partner_erp.group_crm_secretary,partner_erp.group_crm_leader"/>-->
+                        <!--<button name="to_draft" string="取消" type="object" states="approval,done" class="oe_highlight"-->
+                                <!--groups="partner_erp.group_all,partner_erp.group_crm_secretary,partner_erp.group_crm_leader"/>-->
+                    <!--</header>-->
+                     <sheet>
+                        <group col="2">
+                            <field name="message"/>
+                            <field name="is_send"/>
+                        </group>
+                     </sheet>
+                     
+                 </form>
+             </field>
+         </record>
+         <record id='message_action' model='ir.actions.act_window'>
+             <field name="name">订订消息</field>
+             <field name="res_model">ding.ding_message</field>
+             <field name="view_type">form</field>
+             <field name="view_mode">tree,form</field>
+         </record>
+
+     </data>
+</odoo>
+

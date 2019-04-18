@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+     <data>
+         <record id="em_standard_form" model="ir.ui.view">
+             <field name="name">em.standard_form</field>
+             <field name="model">em.standard</field>
+             <field name="arch" type="xml">
+                 <form>
+                     <header>
+                         <field name="state" widget="statusbar"/>
+                         <button name="action_approval" string="提交" type="object" states="draft" class="oe_highlight"/>
+                         <button name="action_approved" string="审批" type="object" states="confirm" class="oe_highlight"/>
+                         <button name="action_draft" string="取消" type="object" states="confirm,done" class="oe_highlight"/>
+                     </header>
+                     <sheet>
+                         <group>
+                             <field name="standard_type"/>
+                             <field name="number"/>
+                             <field name="name"/>
+                             <field name="describe"/>
+                         </group>
+                     </sheet>
+                 </form>
+             </field>
+         </record>
+         <record id="em_standard_tree" model="ir.ui.view">
+             <field name="name">em.standard_tree</field>
+             <field name="model">em.standard</field>
+             <field name="arch" type="xml">
+                 <tree default_order="create_date desc">
+                     <field name="standard_type"/>
+                     <field name="number"/>
+                     <field name="name"/>
+                     <field name="describe"/>
+                     <field name="state"/>
+                 </tree>
+             </field>
+         </record>
+         <record id="em_standard_filter" model="ir.ui.view">
+             <field name="name">em.standard_search</field>
+             <field name="model">em.standard</field>
+             <field name="arch" type="xml">
+                 <search>
+                     <field name="standard_type"/>
+                     <field name="number"/>
+                     <field name="name"/>
+                 </search>
+             </field>
+         </record>
+         <record id='em_standard_action' model='ir.actions.act_window'>
+             <field name="name">规范性文档</field>
+             <field name="res_model">em.standard</field>
+             <field name="view_type">form</field>
+             <field name="view_mode">tree,form</field>
+             <field name="help" type="html">
+                 <p class="oe_view_nocontent_create">
+                 Click to create a new vehicle.
+               </p>
+             </field>
+         </record>
+
+     </data>
+</odoo>
+

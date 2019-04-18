@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data noupdate="0">
+        <record id="partner_erp" model="ir.module.category">
+            <field name="name">客户管理（宝舜）</field>
+            <field name="description">partner_erp</field>
+        </record>
+        <record id="group_read_only" model="res.groups">
+            <field name="name">只读</field>
+            <field name="category_id" ref="partner_erp"/>
+            <field name="implied_ids" eval="[(4,ref('base.group_user'))]"/>
+            <field name="comment">只读</field>
+        </record>
+        <record id="group_all" model="res.groups">
+            <field name="name">管理员</field>
+            <field name="category_id" ref="partner_erp"/>
+            <field name="implied_ids" eval="[(4,ref('base.group_user'))]"/>
+            <field name="comment">管理员</field>
+        </record>
+        <record id="group_crm_employee" model="res.groups">
+            <field name="name">供销业务员</field>
+            <field name="category_id" ref="partner_erp"/>
+            <field name="implied_ids" eval="[(4, ref('group_read_only')), (4,ref('base.group_user'))]"/>
+            <field name="comment">供销业务员</field>
+        </record>
+        <record id="group_crm_secretary" model="res.groups">
+            <field name="name">供销秘书</field>
+            <field name="category_id" ref="partner_erp"/>
+            <field name="implied_ids" eval="[(4, ref('group_read_only')), (4,ref('base.group_user'))]"/>
+            <field name="comment">供销秘书</field>
+        </record>
+        <record id="group_crm_leader" model="res.groups">
+            <field name="name">供销领导</field>
+            <field name="category_id" ref="partner_erp"/>
+            <field name="implied_ids" eval="[(4, ref('group_read_only')), (4,ref('base.group_user'))]"/>
+            <field name="comment">供销领导</field>
+        </record>
+        <record id="group_fm_employee" model="res.groups">
+            <field name="name">财务业务员</field>
+            <field name="category_id" ref="partner_erp"/>
+            <field name="implied_ids" eval="[(4, ref('group_read_only')), (4,ref('base.group_user'))]"/>
+            <field name="comment">财务业务员</field>
+        </record>
+        <record id="group_fm_leader" model="res.groups">
+            <field name="name">财务领导</field>
+            <field name="category_id" ref="partner_erp"/>
+            <field name="implied_ids" eval="[(4, ref('group_fm_employee')), (4,ref('base.group_user'))]"/>
+            <field name="comment">财务领导</field>
+        </record>
+
+        <record id="group_crm" model="res.groups">
+            <field name="name">crm基本档案</field>
+            <field name="category_id" ref="partner_erp"/>
+            <field name="implied_ids" eval="[(4,ref('base.group_user'))]"/>
+            <field name="comment">crm基本档案</field>
+        </record>
+
+        <record id="group_em" model="res.groups">
+            <field name="name">em基本档案</field>
+            <field name="category_id" ref="partner_erp"/>
+            <field name="implied_ids" eval="[(4,ref('base.group_user'))]"/>
+            <field name="comment">em基本档案</field>
+        </record>
+
+        <record id="group_fm" model="res.groups">
+            <field name="name">fm基本档案</field>
+            <field name="category_id" ref="partner_erp"/>
+            <field name="implied_ids" eval="[(4,ref('base.group_user'))]"/>
+            <field name="comment">fm基本档案</field>
+        </record>
+
+        <record id="group_mes" model="res.groups">
+            <field name="name">mes基本档案</field>
+            <field name="category_id" ref="partner_erp"/>
+            <field name="implied_ids" eval="[(4,ref('base.group_user'))]"/>
+            <field name="comment">mes基本档案</field>
+        </record>
+
+        <record id="group_group_finance" model="res.groups">
+            <field name="name">集团财务</field>
+            <field name="category_id" ref="partner_erp"/>
+            <field name="implied_ids" eval="[(4, ref('group_fm_leader')), (4,ref('base.group_user'))]"/>
+            <field name="comment">集团财务</field>
+        </record>
+
+        <record id="group_other_jurisdiction" model="res.groups">
+            <field name="name">其他人员权限</field>
+            <field name="category_id" ref="partner_erp"/>
+            <field name="implied_ids" eval="[(4,ref('base.group_user'))]"/>
+            <field name="comment">其他人员权限</field>
+        </record>
+
+        <record id="group_document" model="res.groups">
+            <field name="name">操作手册</field>
+            <field name="category_id" ref="partner_erp"/>
+            <field name="implied_ids" eval="[(4,ref('base.group_user'))]"/>
+            <field name="comment">操作手册</field>
+        </record>
+
+    </data>
+</odoo>
